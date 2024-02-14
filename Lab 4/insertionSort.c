@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 struct person{
     int id;
@@ -12,11 +13,11 @@ struct person{
 
 /* Print Person Array */
 void printPerson(struct person p){
-    printf("ID: %d\n", p.id);
-    printf("Name: %s\n", p.name);
-    printf("Age: %d\n", p.age);
-    printf("Height: %d\n", p.height);
-    printf("Weight: %d\n", p.weight);
+    printf("ID: %d, ", p.id);
+    printf("Name: %s, ", p.name);
+    printf("Age: %d, ", p.age);
+    printf("Height: %d, ", p.height);
+    printf("Weight: %d ", p.weight);
 }
 void printPersonArray(struct person A[], int n){
     for (int i = 0; i < n; i++){
@@ -59,8 +60,6 @@ void insertionSort(int A[], int n){
 }
 
 int main(){
-    clock_t start = clock();
-    printf("Start time: %ld\n", start);
     // struct person people[5] = {
     //     {1, "Sokka", 15, 150, 45},
     //     {2, "Aang", 112, 137, 35},
@@ -74,13 +73,13 @@ int main(){
     // printf("After sorting:\n");
     // printPersonArray(people, 5);
 
-    FILE *file = fopen("dat1000.csv", "r");
-    if (file == NULL){
+    FILE *fp = fopen("dat100000.csv", "r");
+    if (fp == NULL){
         printf("Error: File not found\n");
         return 1;
     }
-    int n = 1000;
-    struct person people[1000];
+    int n = 100000;
+    struct person people[100000];
     /*
     CSV File format:
         0,Donald Scantling,39,77,231
@@ -88,18 +87,16 @@ int main(){
         2,Barbara Donnelly,63,78,240
         3,Dorothy Helton,47,72,229
     */
-    for (int i = 0; i < n; i++){
+    for (int i = 0; i < 100000; i++){
+        char *buff1=malloc(110*sizeof(char));
         struct person p;
-        // read the data from the file
-        fscanf(file, "%d[^,],%c[^,],%d[^,],%d[^,],%d[^,],\n", &p.id, p.name, &p.age, &p.height, &p.weight);
-        printf("Read: %d,%s,%d,%d,%d\n", p.id, p.name, p.age, p.height, p.weight);
+        fscanf(fp, "%d, %[^,], %d, %d, %d\n", &p.id, buff1, &p.age, &p.height, &p.weight);
+        p.name=buff1;
         people[i] = p;
     }
-    // printPersonArray(people, 5);
+    insertionSortHeight(people,100000);
+    printPersonArray(people, 100000);
 
-    fclose(file);
-    
-    clock_t end = clock();
-    printf("End time: %ld\n", end);   
+    fclose(fp);   
     return 0;
 }
