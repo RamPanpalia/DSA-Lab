@@ -15,11 +15,6 @@ int main(int argc, char *argv[])
     }
 
     char *line = malloc(100); 
-    /* 
-    Here we used malloc() and not myalloc() because as do not want to track 
-    the memory usage of the line variable. We only want to track the heap
-    usage of the stack.
-    */
 
     /*
         Write code to initialize a stack and a time-performance variable
