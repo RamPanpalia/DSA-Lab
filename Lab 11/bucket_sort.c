@@ -5,7 +5,8 @@ void bucket_sort(int* A, int n){
             max = A[i];
         }
     }
-    int bucket[max + 1];
+    // int bucket[max + 1];
+    int *bucket = (int*)malloc((max + 1) * sizeof(int));
     for (int i = 0; i < max + 1; i++) {
         bucket[i] = 0;
     }

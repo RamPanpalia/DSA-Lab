@@ -1,5 +1,6 @@
 void cnt_sort(int* A, int n, int exp) {
-    int output[n];
+    // int output[n];
+    int *output = (int*)malloc(n * sizeof(int));
     int count[10] = {0};
     for (int i = 0; i < n; i++) {
         count[(A[i] / exp) % 10]++;

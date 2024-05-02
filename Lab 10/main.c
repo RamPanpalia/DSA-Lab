@@ -256,17 +256,17 @@ int main() {
     // TASK 1
     // FILE *file = fopen("dat1000.csv", "r");
     // if (file == NULL) {
-    // printf("Failed to open the file.\n");
-    // return 1;
+    //     printf("Failed to open the file.\n");
+    //     return 1;
     // }
 
     // // count the number of lines in the file
     // int numLines = 0;
     // char ch;
     // while ((ch = fgetc(file)) != EOF) {
-    // if (ch == '\n') {
-    // numLines++;
-    // }
+    //     if (ch == '\n') {
+    //         numLines++;
+    //     }
     // }
     // rewind(file);
 
@@ -293,16 +293,16 @@ int main() {
     // printf("Three partition position: %d\n", pivPos);
 
     // TASK 2
-    int arr[] = {1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0};
-    int size = sizeof(arr) / sizeof(arr[0]);
+    // int arr[] = {1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0};
+    // int size = sizeof(arr) / sizeof(arr[0]);
 
-    segregateZeroAndOne(arr, size);
+    // segregateZeroAndOne(arr, size);
 
-    printf("Segregated array: ");
-    for (int i = 0; i < size; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
+    // printf("Segregated array: ");
+    // for (int i = 0; i < size; i++) {
+    //     printf("%d ", arr[i]);
+    // }
+    // printf("\n");
 
     // TASK 3
 
